@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+
+</head>
+<body>
+    <div th:replace="~{nav.html::navbar}"></div>
+    <div class="card" th:each="i : ${items}">
+        <img src="https://placehold.co/300">
+        <div>
+            <h4 th:text="${i.title}">asdfddd</h4>
+            <a th:href="@{'/detail/' + ${i.id}}">link</a>
+            <p th:text="${i.price}"></p>
+            <a th:href="@{'/edit/' + ${i.id}}">✏</a>
+            <span th:onclick="'fetch(\'/item?id=' + ${i.id} + '\', { method: \'DELETE\' })' +
+                  '.then(r => r.text())' +
+                  '.then(result => { location.reload(); })'">🗑️</span>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

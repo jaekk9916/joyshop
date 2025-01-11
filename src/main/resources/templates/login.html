@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="/main.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="~{nav.html::navbar}"></div>
+<form action="/login" method="POST">
+  <input name="username">
+  <input name="password" type="password">
+  <button type="submit">submit</button>
+</form>
+
+<div th:if="${param.error}">
+  <h4>Invalid Login info</h4>
+</div>
+
+</body>
+</html>

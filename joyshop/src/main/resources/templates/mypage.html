@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="/main.css" rel="stylesheet">
+
+</head>
+<body>
+  <div th:replace="~{nav.html::navbar}"></div>
+  <div sec:authentication="principal"></div>
+  <div sec:authentication="principal.username"></div>
+  <div sec:authorize="hasAuthority('ROLE_USER')">Only visible to normal users</div>
+  <div sec:authorize="isAuthenticated()">Only visible to logged in users</div>
+  <div sec:authorize="isAnonymous()">Visible to non-logged-in, regular users</div>
+
+
+</body>
+</html>
